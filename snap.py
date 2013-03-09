@@ -149,10 +149,22 @@ if __name__ == "__main__":
     from nxt.motor import *
     from nxt.sensor import *
     b = nxt.locator.find_one_brick()
-    t = Touch(b, PORT_1)
-    s = Sound(b, PORT_2)
-    l = Light(b, PORT_3)
-    u = Ultrasonic(b, PORT_4)
+    try:
+    	t = Touch(b, PORT_1)
+    except:
+    	pass
+    try:
+    	s = Sound(b, PORT_2)
+    except:
+    	pass
+    try:
+    	l = Light(b, PORT_3)
+    except:
+    	pass
+    try:
+    	u = Ultrasonic(b, PORT_4)
+    except:
+    	pass
     m_a = Motor(b, PORT_A)
     m_b = Motor(b, PORT_B)
     m_c = Motor(b, PORT_C)
