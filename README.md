@@ -4,8 +4,8 @@ snap-nxt
 A block module and local server for Snap! to interface with the Mindstorms NXT.
 
 #Requirements
-A Mindstorms NXT
-Python 2.6+
+A Mindstorms NXT\n
+Python 2.6+\n
 The nxt-python module for Python.
 
 #Getting Started
