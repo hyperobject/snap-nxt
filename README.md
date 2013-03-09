@@ -18,7 +18,7 @@ The program should print something like 'Now serving on port 1330.'
 **Enjoy!**
 
 #NXT stuff
-You **must** have the all sensors plugged into your NXT in this arrangement -
+You **must** have the all sensors plugged into your NXT in this arrangement:
 Port 1 - Touch
 Port 2 - Sound
 Port 3 - Light
