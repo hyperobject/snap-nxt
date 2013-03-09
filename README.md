@@ -1,4 +1,4 @@
-snap-nxt
+snap-nxt v0.2
 ========
 
 A block module and local server for Snap! to interface with the Mindstorms NXT.
@@ -18,7 +18,7 @@ A block module and local server for Snap! to interface with the Mindstorms NXT.
 * **Enjoy!**
 
 #NXT stuff
-You **must** have the all sensors plugged into your NXT in this arrangement:
+If you connect the sensors, connect them in the following configuration:
 * Port 1 - Touch
 * Port 2 - Sound
 * Port 3 - Light
