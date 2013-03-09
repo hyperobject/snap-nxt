@@ -24,3 +24,6 @@ You **must** have the all sensors plugged into your NXT in this arrangement:
 * Port 3 - Light
 * Port 4 - Ultrasonic
 
+#Credits
+* Based heavily upon the Python CORS server here: https://gist.github.com/2904124
+* Thanks to the Snap! team for making this fairly easy to do
