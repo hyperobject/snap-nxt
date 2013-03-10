@@ -1,3 +1,4 @@
+#Snap-NXT by Technoboy10
 import SimpleHTTPServer
 class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def send_head(self):
@@ -85,6 +86,7 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        return f
 
 if __name__ == "__main__":
+    print "Snap-NXT by Technoboy10"
     import re
     import os
     import SocketServer
