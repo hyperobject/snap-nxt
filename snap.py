@@ -168,7 +168,7 @@ if __name__ == "__main__":
     m_a = Motor(b, PORT_A)
     m_b = Motor(b, PORT_B)
     m_c = Motor(b, PORT_C)
-    P2ORT = 1330
+    PORT = 1330
 
     Handler = CORSHTTPRequestHandler
     #Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
