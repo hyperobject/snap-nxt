@@ -11,46 +11,33 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         None, in which case the caller has nothing further to do.
 
         """
-	path = self.translate_path(self.path)
+	path = self.path
 	print path
 	ospath = os.path.abspath('')
-	if path == ospath + '/nxtfull360a': #motor a
-		m_a.turn(100, 360)
-	elif path == ospath + '/nxthalf360a':
-		m_a.turn(50, 360)
-	elif path == ospath + '/nxtfull180a':
-		m_a.turn(100, 180)
-	elif path == ospath + '/nxthalf180a':
-		m_a.turn(50, 180)
-	elif path == ospath + '/nxtfull90a':
-		m_a.turn(100, 90)
-	elif path == ospath + 'nxthalf90a':
-		m_a.turn(50, 90)
-	elif path == ospath + '/nxtfull360b': #motor B
-		m_b.turn(100, 360)
-	elif path == ospath + '/nxthalf360b':
-		m_b.turn(50, 360)
-	elif path == ospath + '/nxtfull180b':
-		m_b.turn(100, 180)
-	elif path == ospath + '/nxthalf180b':
-		m_b.turn(50, 180)
-	elif path == ospath + '/nxtfull90b':
-		m_b.turn(100, 90)
-	elif path == ospath + 'nxthalf90b':
-		m_b.turn(50, 90)
-	elif path == ospath + '/nxtfull360c': #motor C
-		m_c.turn(100, 360)
-	elif path == ospath + '/nxthalf360c':
-		m_c.turn(50, 360)
-	elif path == ospath + '/nxtfull180c':
-		m_c.turn(100, 180)
-	elif path == ospath + '/nxthalf180c':
-		m_c.turn(50, 180)
-	elif path == ospath + '/nxtfull90c':
-		m_c.turn(100, 90)
-	elif path == ospath + 'nxthalf90c':
-		m_c.turn(50, 90)
-	elif path == ospath + '/nxttouch': #touch
+	if 'move' in path:
+		regex = re.compile("\/move([abc])0([0-9]+)0([0-9]+)0([+-])")
+		m = regex.match(path)
+		if m.group(4) == '-':
+			power = -1 * int(m.group(2))
+		elif m.group(4) == "+":
+			power = int(m.group(2))
+		degrees = int(m.group(3))
+		motor = m.group(1)
+		if motor == "a":
+			m_a.turn(power, degrees)
+		elif motor == "b":
+			m_b.turn(power, degrees)
+		if motor == "a":
+			m_a.turn(power, degrees)
+	elif 'tone' in path:
+		regex = re.compile('\/tone([0-9]{1,})a([0-9]{1,})')
+		m = regex.match(path)
+		tone = int(m.group(1))
+		time = int(m.group(2))
+		print time
+		print tone
+		b.play_tone_and_wait(tone, time)
+	elif path == '/nxttouch': #touch
 		f = open(ospath + '/return', 'w+')
 		f.write(str(t.get_sample()))
 		f.close()
@@ -64,7 +51,7 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.send_header("Access-Control-Allow-Origin", "*")
 	        self.end_headers()
 	        return f
-	elif path == ospath + '/nxtsound': #sound
+	elif path == '/nxtsound': #sound
 		f = open(ospath + '/return', 'w+')
 		f.write(str(s.get_sample()))
 		f.close()
@@ -78,7 +65,7 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.send_header("Access-Control-Allow-Origin", "*")
 	        self.end_headers()
 	        return f
-	elif path == ospath + '/nxtlight': #light
+	elif path == '/nxtlight': #light
 		f = open(ospath + '/return', 'w+')
 		f.write(str(l.get_sample()))
 		f.close()
@@ -92,7 +79,7 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.send_header("Access-Control-Allow-Origin", "*")
 	        self.end_headers()
 	        return f
-	elif path == ospath + '/nxtultrasonic': #ultrasonic
+	elif path == '/nxtultrasonic': #ultrasonic
 		f = open(ospath + '/return', 'w+')
 		f.write(str(u.get_sample()))
 		f.close()
@@ -143,6 +130,7 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    import re
     import os
     import SocketServer
     import nxt.locator
