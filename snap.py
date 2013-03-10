@@ -148,7 +148,7 @@ if __name__ == "__main__":
     import nxt.locator
     from nxt.motor import *
     from nxt.sensor import *
-     b = nxt.locator.find_one_brick(method=nxt.Method(device=True))
+    b = nxt.locator.find_one_brick(method=nxt.Method(device=True))
     try:
     	t = Touch(b, PORT_1)
     except:
@@ -168,7 +168,7 @@ if __name__ == "__main__":
     m_a = Motor(b, PORT_A)
     m_b = Motor(b, PORT_B)
     m_c = Motor(b, PORT_C)
-    PORT = 1330
+    PORT = 1330 #N reminded me of 13, X in Roman numerals is 10, and T is the 20th letter. I added X and T together.
 
     Handler = CORSHTTPRequestHandler
     #Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
