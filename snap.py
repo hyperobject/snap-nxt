@@ -148,7 +148,7 @@ if __name__ == "__main__":
     import nxt.locator
     from nxt.motor import *
     from nxt.sensor import *
-    b = nxt.locator.find_one_brick(method=nxt.Method(device=True))
+    b = nxt.locator.find_one_brick()
     try:
     	t = Touch(b, PORT_1)
     except:
