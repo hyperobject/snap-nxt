@@ -1,4 +1,4 @@
-snap-nxt v0.2
+snap-nxt v1.0
 ========
 
 A block module and local server for Snap! to interface with the Mindstorms NXT.
