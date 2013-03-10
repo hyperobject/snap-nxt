@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Snap-NXT
+Comment=Use Snap-NXT
+Exec=python snap.py
+Terminal=false
+Type=Application
+Categories=Application
+StartupNotify=true
+MimeType=text/plain;
+NoDisplay=true
+Name[en_US]=Snap-NXT
+Comment[en_US.UTF-8]=
+GenericName[en_US.UTF-8]=Use Snap-NXT
+Icon=/home/tiberiusgeek/snap-nxt/Snap!.png
