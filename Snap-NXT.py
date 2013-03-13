@@ -28,6 +28,14 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		print time
 		print tone
 		b.play_tone_and_wait(tone, time)
+	elif 'illuminate' in path:
+		regex = re.compile('\/illuminate(on|off)')
+		m = regex.match(path)
+		setl = m.group(1)
+		if setl == 'on':
+			l.set_illuminated(True)
+		elif setl == 'off':
+			l.set_illuminated(False)
 	elif path == '/nxttouch': #touch
 		f = open(ospath + '/return', 'w+')
 		f.write(str(t.get_sample()))
