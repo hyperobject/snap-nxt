@@ -18,8 +18,8 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 			m_a.turn(power, degrees)
 		elif motor == "b":
 			m_b.turn(power, degrees)
-		if motor == "a":
-			m_a.turn(power, degrees)
+		if motor == "c":
+			m_c.turn(power, degrees)
 	elif 'tone' in path:
 		regex = re.compile('\/tone([0-9]{1,})a([0-9]{1,})')
 		m = regex.match(path)
@@ -107,7 +107,11 @@ if __name__ == "__main__":
     import nxt.locator
     from nxt.motor import *
     from nxt.sensor import *
-    b = nxt.locator.find_one_brick()
+    try:
+        b = nxt.locator.find_one_brick()
+    except:
+        print "NXT brick not found. Please connect an NXT brick and try again."
+        quit()
     try:
     	t = Touch(b, PORT_1)
     except:
