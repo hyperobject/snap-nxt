@@ -106,12 +106,24 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.send_header("Access-Control-Allow-Origin", "*")
 	        self.end_headers()
 	        return f
+	elif path == '/Snap-NXT': 
+		f = open(ospath + '/Snap-NXT.xml', 'rb')
+		ctype = self.guess_type(ospath + '/return')
+		self.send_response(200)
+	        self.send_header("Content-type", ctype)
+	        fs = os.fstat(f.fileno())
+	        self.send_header("Content-Length", str(fs[6]))
+	        self.send_header("Last-Modified", self.date_time_string(fs.st_mtime))
+	        self.send_header("Access-Control-Allow-Origin", "*")
+	        self.end_headers()
+	        return f
 
 if __name__ == "__main__":
     print "Snap-NXT by Technoboy10"
     import re
     import os
     import SocketServer
+    import nxt.bluesock
     import nxt.locator
     from nxt.motor import *
     from nxt.sensor import *
@@ -148,5 +160,6 @@ if __name__ == "__main__":
 
     print "serving at port", PORT
     print "Go ahead and launch Snap!."
+    print "http://snap.berkeley.edu/snapsource/snap.html#open:http://localhost:1330/Snap-NXT"
     httpd.serve_forever()
 
