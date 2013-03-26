@@ -160,6 +160,6 @@ if __name__ == "__main__":
 
     print "serving at port", PORT
     print "Go ahead and launch Snap!."
-    print "http://snap.berkeley.edu/snapsource/snap.html#open:http://localhost:1330/Snap-NXT"
+    print "<a>http://snap.berkeley.edu/snapsource/snap.html#open:http://localhost:1330/Snap-NXT</a>"
     httpd.serve_forever()
 
