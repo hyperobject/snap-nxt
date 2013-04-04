@@ -37,11 +37,11 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		elif setl == 'off':
 			l.set_illuminated(False)
 	elif path == '/nxttouch': #touch
-		f = open(ospath + '/return', 'w+')
+		f = open(ospath + '/nxtreturn', 'w+')
 		f.write(str(t.get_sample()))
 		f.close()
-		f = open(ospath + '/return', 'rb')
-		ctype = self.guess_type(ospath + '/return')
+		f = open(ospath + '/nxtreturn', 'rb')
+		ctype = self.guess_type(ospath + '/nxtreturn')
 		self.send_response(200)
 	        self.send_header("Content-type", ctype)
 	        fs = os.fstat(f.fileno())
@@ -51,11 +51,11 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.end_headers()
 	        return f
 	elif path == '/nxtsound': #sound
-		f = open(ospath + '/return', 'w+')
+		f = open(ospath + '/nxtreturn', 'w+')
 		f.write(str(s.get_sample()))
 		f.close()
-		f = open(ospath + '/return', 'rb')
-		ctype = self.guess_type(ospath + '/return')
+		f = open(ospath + '/nxtreturn', 'rb')
+		ctype = self.guess_type(ospath + '/nxtreturn')
 		self.send_response(200)
 	        self.send_header("Content-type", ctype)
 	        fs = os.fstat(f.fileno())
@@ -65,11 +65,11 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.end_headers()
 	        return f
 	elif path == '/nxtlight': #light
-		f = open(ospath + '/return', 'w+')
+		f = open(ospath + '/nxtreturn', 'w+')
 		f.write(str(l.get_sample()))
 		f.close()
-		f = open(ospath + '/return', 'rb')
-		ctype = self.guess_type(ospath + '/return')
+		f = open(ospath + '/nxtreturn', 'rb')
+		ctype = self.guess_type(ospath + '/nxtreturn')
 		self.send_response(200)
 	        self.send_header("Content-type", ctype)
 	        fs = os.fstat(f.fileno())
@@ -79,11 +79,11 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.end_headers()
 	        return f
 	elif path == '/nxtultrasonic': #ultrasonic
-		f = open(ospath + '/return', 'w+')
+		f = open(ospath + '/nxtreturn', 'w+')
 		f.write(str(u.get_sample()))
 		f.close()
-		f = open(ospath + '/return', 'rb')
-		ctype = self.guess_type(ospath + '/return')
+		f = open(ospath + '/nxtreturn', 'rb')
+		ctype = self.guess_type(ospath + '/nxtreturn')
 		self.send_response(200)
 	        self.send_header("Content-type", ctype)
 	        fs = os.fstat(f.fileno())
@@ -93,11 +93,11 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        self.end_headers()
 	        return f
 	elif path == '/nxtbattery': #battery level
-		f = open(ospath + '/return', 'w+')
+		f = open(ospath + '/nxtreturn', 'w+')
 		f.write(str(b.get_battery_level()))
 		f.close()
-		f = open(ospath + '/return', 'rb')
-		ctype = self.guess_type(ospath + '/return')
+		f = open(ospath + '/nxtreturn', 'rb')
+		ctype = self.guess_type(ospath + '/nxtreturn')
 		self.send_response(200)
 	        self.send_header("Content-type", ctype)
 	        fs = os.fstat(f.fileno())
@@ -108,7 +108,7 @@ class CORSHTTPRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	        return f
 	elif path == '/Snap-NXT': 
 		f = open(ospath + '/Snap-NXT.xml', 'rb')
-		ctype = self.guess_type(ospath + '/return')
+		ctype = self.guess_type(ospath + '/nxtreturn')
 		self.send_response(200)
 	        self.send_header("Content-type", ctype)
 	        fs = os.fstat(f.fileno())
